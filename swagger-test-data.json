@@ -1,0 +1,206 @@
+{
+  "students": {
+    "create": {
+      "firstName": "John", // POST /students
+      "lastName": "Doe",
+      "age": 20
+    },
+    "update": {
+      "firstName": "John",
+      "lastName": "Smith",
+      "age": 21
+    },
+    "bulkCreate": [
+      {
+        "firstName": "Jane",
+        "lastName": "Doe",
+        "age": 19
+      },
+      {
+        "firstName": "Robert",
+        "lastName": "Johnson",
+        "age": 22
+      },
+      {
+        "firstName": "Emily",
+        "lastName": "Williams",
+        "age": 20
+      },
+      {
+        "firstName": "Michael",
+        "lastName": "Brown",
+        "age": 21
+      }
+    ]
+  },
+  "classes": {
+    "create": {
+      "name": "Mathematics 101", // --> POST/ classes 
+      "teacher": "Prof. Einstein",
+      "description": "Introduction to Mathematics covering algebra, calculus, and statistics"
+    },
+    "bulkCreate": [
+      {
+        "name": "Physics 101",
+        "teacher": "Prof. Newton",
+        "description": "Introduction to Physics covering mechanics and thermodynamics"
+      },
+      {
+        "name": "Computer Science 101",
+        "teacher": "Prof. Turing",
+        "description": "Introduction to Computer Science covering algorithms and data structures"
+      },
+      {
+        "name": "Biology 101",
+        "teacher": "Prof. Darwin",
+        "description": "Introduction to Biology covering cells, genetics, and evolution"
+      }
+    ]
+  },
+  "enrollments": { // -->  POST /enrollments
+    "create": {
+      "studentId": 1,
+      "classId": 1
+    },
+    "bulkCreate": [
+      {
+        "studentId": 1,
+        "classId": 2
+      },
+      {
+        "studentId": 2,
+        "classId": 1
+      },
+      {
+        "studentId": 2,
+        "classId": 2
+      },
+      {
+        "studentId": 3,
+        "classId": 1
+      },
+      {
+        "studentId": 3,
+        "classId": 3
+      },
+      {
+        "studentId": 4,
+        "classId": 2
+      },
+      {
+        "studentId": 5,
+        "classId": 3
+      }
+    ]
+  },
+  "marks": {
+    "create": {   // POST /marks
+      "studentId": 1,
+      "classId": 1,
+      "examMark": 85,
+      "assignmentMark": 90
+    },
+    "bulkCreate": [
+      {
+        "studentId": 1,
+        "classId": 2,
+        "examMark": 78,
+        "assignmentMark": 85
+      },
+      {
+        "studentId": 2,
+        "classId": 1,
+        "examMark": 92,
+        "assignmentMark": 88
+      },
+      {
+        "studentId": 2,
+        "classId": 2,
+        "examMark": 75,
+        "assignmentMark": 80
+      },
+      {
+        "studentId": 3,
+        "classId": 1,
+        "examMark": 88,
+        "assignmentMark": 94
+      },
+      {
+        "studentId": 3,
+        "classId": 3,
+        "examMark": 95,
+        "assignmentMark": 92
+      },
+      {
+        "studentId": 4,
+        "classId": 2,
+        "examMark": 82,
+        "assignmentMark": 78
+      },
+      {
+        "studentId": 5,
+        "classId": 3,
+        "examMark": 90,
+        "assignmentMark": 95
+      }
+    ]
+  },
+  "invalidData": {
+    "student": {
+      "firstName": "",
+      "lastName": "Doe",
+      "age": -5
+    },
+    "class": {
+      "name": "",
+      "teacher": "",
+      "description": "This is a very long description that exceeds the maximum allowed length for a class description. It should trigger a validation error when submitted through the API."
+    },
+    "enrollment": {
+      "studentId": 0,
+      "classId": 999
+    },
+    "mark": {
+      "studentId": 1,
+      "classId": 1,
+      "examMark": 110,
+      "assignmentMark": -10
+    }
+  },
+  "queryParameters": {
+    "students": {
+      "pageNumber": 1,
+      "pageSize": 10,
+      "searchTerm": "John"
+    },
+    "classes": {
+      "pageNumber": 1,
+      "pageSize": 10,
+      "searchTerm": "Math"
+    },
+    "enrollments": {
+      "pageNumber": 1,
+      "pageSize": 10,
+      "studentId": 1
+    },
+    "marks": {
+      "pageNumber": 1,
+      "pageSize": 10,
+      "studentId": 1,
+      "classId": 1
+    }
+  }
+}
+
+GET /students/{studentId}/report
+
+then at the end run these endpoints :
+1- GET /classes/{classId}/average-marks
+
+2- GET /students/{studentId}/report
+
+3- GET /students?pageNumber=1&pageSize=10&searchTerm=Doe
+
+4- GET /classes?pageNumber=1&pageSize=10&searchTerm=Math
+
+5- GET /marks?pageNumber=1&pageSize=10&studentId=1
