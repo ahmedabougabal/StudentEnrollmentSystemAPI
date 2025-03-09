@@ -25,38 +25,26 @@
         
         <!-- Application Layer -->
         <Folder Include="Application\" />
-        <Folder Include="Application\Services\" />
-        <Folder Include="Application\Interfaces\" />
-        <Folder Include="Application\DTOs\" />
-        <Folder Include="Application\Exceptions\" />
         
         <!-- Features (Vertical Slices) -->
         <Folder Include="Features\" />
         <Folder Include="Features\Students\" />
         <Folder Include="Features\Students\Endpoints\" />
-        <Folder Include="Features\Students\Requests\" />
-        <Folder Include="Features\Students\Responses\" />
         <Folder Include="Features\Students\Validators\" />
         <Folder Include="Features\Students\Mappers\" />
         
         <Folder Include="Features\Classes\" />
         <Folder Include="Features\Classes\Endpoints\" />
-        <Folder Include="Features\Classes\Requests\" />
-        <Folder Include="Features\Classes\Responses\" />
         <Folder Include="Features\Classes\Validators\" />
         <Folder Include="Features\Classes\Mappers\" />
         
         <Folder Include="Features\Enrollments\" />
         <Folder Include="Features\Enrollments\Endpoints\" />
-        <Folder Include="Features\Enrollments\Requests\" />
-        <Folder Include="Features\Enrollments\Responses\" />
         <Folder Include="Features\Enrollments\Validators\" />
         <Folder Include="Features\Enrollments\Mappers\" />
         
         <Folder Include="Features\Marks\" />
         <Folder Include="Features\Marks\Endpoints\" />
-        <Folder Include="Features\Marks\Requests\" />
-        <Folder Include="Features\Marks\Responses\" />
         <Folder Include="Features\Marks\Validators\" />
         <Folder Include="Features\Marks\Mappers\" />
         
