@@ -4,28 +4,22 @@ namespace UniversityEnrollmentSystem.Features.Students.Requests;
 
 public class CreateStudentRequest
 {
-    [Required]
-    [StringLength(50)]
     public string FirstName { get; set; } = default!;
-
-    [Required]
-    [StringLength(50)]
     public string LastName { get; set; } = default!;
-
-    [Range(16, 100)]
     public int Age { get; set; }
 }
 
-public class UpdateStudentRequest : CreateStudentRequest
+public class UpdateStudentRequest
 {
-    [Required]
     public int Id { get; set; }
+    public string FirstName { get; set; } = default!;
+    public string LastName { get; set; } = default!;
+    public int Age { get; set; }
 }
 
-public class StudentSearchRequest
+public class ListStudentsRequest
 {
-    public int Page { get; set; } = 1;
+    public int PageNumber { get; set; } = 1;
     public int PageSize { get; set; } = 10;
-    public string? Name { get; set; }
-    public int? Age { get; set; }
+    public string? SearchTerm { get; set; }
 }
