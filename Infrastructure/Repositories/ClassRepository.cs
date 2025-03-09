@@ -25,7 +25,8 @@ public class ClassRepository : InMemoryRepository<Class>, IClassRepository
         }
 
         return await Task.FromResult(
-            query.Skip((page - 1) * pageSize)
+            query.OrderBy(c => c.Name)
+                 .Skip((page - 1) * pageSize)
                  .Take(pageSize)
                  .ToList());
     }
@@ -54,7 +55,14 @@ public class ClassRepository : InMemoryRepository<Class>, IClassRepository
         return await Task.FromResult(
             _entities.Values
                 .Where(c => c.Enrollments.Any(e => e.StudentId == studentId))
+                .OrderBy(c => c.Name)
                 .ToList());
+    }
+
+    public async Task<int> GetTotalCountByStudentIdAsync(int studentId)
+    {
+        return await Task.FromResult(
+            _entities.Values.Count(c => c.Enrollments.Any(e => e.StudentId == studentId)));
     }
 
     public async Task<decimal> GetClassAverageMarkAsync(int classId)
