@@ -16,19 +16,25 @@ public class EnrollmentRepository : InMemoryRepository<Enrollment>, IEnrollmentR
                 e.ClassId == classId));
     }
 
-    public async Task<IEnumerable<Enrollment>> GetEnrollmentsByStudentIdAsync(int studentId)
+    public async Task<IEnumerable<Enrollment>> GetEnrollmentsByStudentIdAsync(int studentId, int page = 1, int pageSize = 10)
     {
         return await Task.FromResult(
             _entities.Values
                 .Where(e => e.StudentId == studentId)
+                .OrderByDescending(e => e.EnrollmentDate)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
                 .ToList());
     }
 
-    public async Task<IEnumerable<Enrollment>> GetEnrollmentsByClassIdAsync(int classId)
+    public async Task<IEnumerable<Enrollment>> GetEnrollmentsByClassIdAsync(int classId, int page = 1, int pageSize = 10)
     {
         return await Task.FromResult(
             _entities.Values
                 .Where(e => e.ClassId == classId)
+                .OrderByDescending(e => e.EnrollmentDate)
+                .Skip((page - 1) * pageSize)
+                .Take(pageSize)
                 .ToList());
     }
 
@@ -40,5 +46,17 @@ public class EnrollmentRepository : InMemoryRepository<Enrollment>, IEnrollmentR
                 e.ClassId == classId);
 
         return await Task.FromResult(enrollment?.EnrollmentDate);
+    }
+
+    public async Task<int> GetTotalCountByStudentIdAsync(int studentId)
+    {
+        return await Task.FromResult(
+            _entities.Values.Count(e => e.StudentId == studentId));
+    }
+
+    public async Task<int> GetTotalCountByClassIdAsync(int classId)
+    {
+        return await Task.FromResult(
+            _entities.Values.Count(e => e.ClassId == classId));
     }
 }

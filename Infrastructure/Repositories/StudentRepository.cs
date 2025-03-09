@@ -27,9 +27,11 @@ public class StudentRepository : InMemoryRepository<Student>, IStudentRepository
             query = query.Where(s => s.Age == age.Value);
         }
 
-        // Apply pagination
+        // Apply sorting and pagination
         return await Task.FromResult(
-            query.Skip((page - 1) * pageSize)
+            query.OrderBy(s => s.LastName)
+                 .ThenBy(s => s.FirstName)
+                 .Skip((page - 1) * pageSize)
                  .Take(pageSize)
                  .ToList());
     }
@@ -59,6 +61,14 @@ public class StudentRepository : InMemoryRepository<Student>, IStudentRepository
         return await Task.FromResult(
             _entities.Values
                 .Where(s => s.Enrollments.Any(e => e.ClassId == classId))
+                .OrderBy(s => s.LastName)
+                .ThenBy(s => s.FirstName)
                 .ToList());
+    }
+
+    public async Task<int> GetTotalCountByClassIdAsync(int classId)
+    {
+        return await Task.FromResult(
+            _entities.Values.Count(s => s.Enrollments.Any(e => e.ClassId == classId)));
     }
 }
