@@ -16,15 +16,12 @@ public class DeleteClassEndpoint : EndpointWithoutRequest
 
     public override void Configure()
     {
-        Delete("/api/classes/{id}");
+        Delete("/classes/{id}");
         AllowAnonymous();
-        Summary(s =>
-        {
-            s.Summary = "Deletes a class";
-            s.Description = "Deletes a class by its unique identifier";
-            s.Response(204, "Class deleted successfully");
-            s.Response(404, "Class not found");
-        });
+        Description(d => d
+            .Produces(204)
+            .Produces(404)
+            .WithTags("Classes"));
     }
 
     public override async Task HandleAsync(CancellationToken ct)

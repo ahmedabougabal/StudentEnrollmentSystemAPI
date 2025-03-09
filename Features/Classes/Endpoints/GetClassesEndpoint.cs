@@ -18,7 +18,7 @@ public class GetClassesEndpoint : Endpoint<ClassSearchRequest, ClassesResponse>
 
     public override void Configure()
     {
-        Get("/api/classes");
+        Get("/classes");
         AllowAnonymous();
         Summary(s =>
         {
