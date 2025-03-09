@@ -1,0 +1,80 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+    <PropertyGroup>
+        <TargetFramework>net8.0</TargetFramework>
+        <Nullable>enable</Nullable>
+        <ImplicitUsings>enable</ImplicitUsings>
+    </PropertyGroup>
+
+    <ItemGroup>
+        <PackageReference Include="FastEndpoints" Version="5.35.0" />
+        <PackageReference Include="FastEndpoints.Swagger" Version="5.35.0" />
+        <PackageReference Include="Microsoft.AspNetCore.OpenApi" Version="8.0.13"/>
+        <PackageReference Include="Swashbuckle.AspNetCore" Version="6.6.2"/>
+        <PackageReference Include="FluentValidation" Version="11.9.0" />
+        <PackageReference Include="FastEndpoints.Security" Version="5.35.0" />
+    </ItemGroup>
+
+    <ItemGroup>
+        <!-- Domain Layer -->
+        <Folder Include="Domain\" />
+        <Folder Include="Domain\Entities\" />
+        <Folder Include="Domain\Interfaces\" />
+        <Folder Include="Domain\Events\" />
+        <Folder Include="Domain\ValueObjects\" />
+        <Folder Include="Domain\Enums\" />
+        
+        <!-- Application Layer -->
+        <Folder Include="Application\" />
+        <Folder Include="Application\Services\" />
+        <Folder Include="Application\Interfaces\" />
+        <Folder Include="Application\DTOs\" />
+        <Folder Include="Application\Exceptions\" />
+        
+        <!-- Features (Vertical Slices) -->
+        <Folder Include="Features\" />
+        <Folder Include="Features\Students\" />
+        <Folder Include="Features\Students\Endpoints\" />
+        <Folder Include="Features\Students\Requests\" />
+        <Folder Include="Features\Students\Responses\" />
+        <Folder Include="Features\Students\Validators\" />
+        <Folder Include="Features\Students\Mappers\" />
+        
+        <Folder Include="Features\Classes\" />
+        <Folder Include="Features\Classes\Endpoints\" />
+        <Folder Include="Features\Classes\Requests\" />
+        <Folder Include="Features\Classes\Responses\" />
+        <Folder Include="Features\Classes\Validators\" />
+        <Folder Include="Features\Classes\Mappers\" />
+        
+        <Folder Include="Features\Enrollments\" />
+        <Folder Include="Features\Enrollments\Endpoints\" />
+        <Folder Include="Features\Enrollments\Requests\" />
+        <Folder Include="Features\Enrollments\Responses\" />
+        <Folder Include="Features\Enrollments\Validators\" />
+        <Folder Include="Features\Enrollments\Mappers\" />
+        
+        <Folder Include="Features\Marks\" />
+        <Folder Include="Features\Marks\Endpoints\" />
+        <Folder Include="Features\Marks\Requests\" />
+        <Folder Include="Features\Marks\Responses\" />
+        <Folder Include="Features\Marks\Validators\" />
+        <Folder Include="Features\Marks\Mappers\" />
+        
+        <!-- Infrastructure Layer -->
+        <Folder Include="Infrastructure\" />
+        <Folder Include="Infrastructure\Data\" />
+        <Folder Include="Infrastructure\Repositories\" />
+        <Folder Include="Infrastructure\Services\" />
+        <Folder Include="Infrastructure\Persistence\" />
+        
+        <!-- Common/Shared Layer -->
+        <Folder Include="Common\" />
+        <Folder Include="Common\Extensions\" />
+        <Folder Include="Common\Middleware\" />
+        <Folder Include="Common\Exceptions\" />
+        <Folder Include="Common\Behaviors\" />
+        <Folder Include="Common\Constants\" />
+    </ItemGroup>
+
+</Project>
