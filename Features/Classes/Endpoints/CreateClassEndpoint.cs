@@ -19,7 +19,7 @@ public class CreateClassEndpoint : Endpoint<CreateClassRequest, ClassResponse>
 
     public override void Configure()
     {
-        Post("/api/classes");
+        Post("/classes");
         AllowAnonymous();
         Summary(s =>
         {

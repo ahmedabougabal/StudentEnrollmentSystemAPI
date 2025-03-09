@@ -16,7 +16,7 @@ public class UpdateStudentEndpoint : Endpoint<UpdateStudentRequest, StudentRespo
 
     public override void Configure()
     {
-        Put("/api/students/{id}");
+        Put("/students/{id}");
         AllowAnonymous();
         Description(d => d
             .Produces<StudentResponse>(200)

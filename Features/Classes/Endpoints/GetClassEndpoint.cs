@@ -17,15 +17,12 @@ public class GetClassEndpoint : EndpointWithoutRequest<ClassResponse>
 
     public override void Configure()
     {
-        Get("/api/classes/{id}");
+        Get("/classes/{id}");
         AllowAnonymous();
-        Summary(s =>
-        {
-            s.Summary = "Gets a class by ID";
-            s.Description = "Retrieves a specific class by its unique identifier";
-            s.Response<ClassResponse>(200, "Class found");
-            s.Response(404, "Class not found");
-        });
+        Description(d => d
+            .Produces<ClassResponse>(200)
+            .Produces(404)
+            .WithTags("Classes"));
     }
 
     public override async Task HandleAsync(CancellationToken ct)

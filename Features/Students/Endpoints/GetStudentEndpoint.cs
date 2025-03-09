@@ -15,7 +15,7 @@ public class GetStudentEndpoint : EndpointWithoutRequest<StudentResponse>
 
     public override void Configure()
     {
-        Get("/api/students/{id}");
+        Get("/students/{id}");
         AllowAnonymous();
         Description(d => d
             .Produces<StudentResponse>(200)

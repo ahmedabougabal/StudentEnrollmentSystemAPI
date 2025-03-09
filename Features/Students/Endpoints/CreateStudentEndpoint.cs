@@ -16,7 +16,7 @@ public class CreateStudentEndpoint : Endpoint<CreateStudentRequest, StudentRespo
 
     public override void Configure()
     {
-        Post("/api/students");
+        Post("/students");
         AllowAnonymous();
         Description(d => d
             .Produces<StudentResponse>(201)
@@ -29,8 +29,13 @@ public class CreateStudentEndpoint : Endpoint<CreateStudentRequest, StudentRespo
         var student = await _studentService.CreateStudentAsync(req, ct);
         await SendCreatedAtAsync<GetStudentEndpoint>(
             new { id = student.Id },
-            student,
-            generateAbsoluteUrl: true,
+            new StudentResponse
+            {
+                Id = student.Id,
+                FirstName = student.FirstName,
+                LastName = student.LastName,
+                Age = student.Age
+            },
             cancellation: ct);
     }
 }

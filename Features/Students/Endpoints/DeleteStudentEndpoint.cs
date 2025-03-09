@@ -14,7 +14,7 @@ public class DeleteStudentEndpoint : EndpointWithoutRequest
 
     public override void Configure()
     {
-        Delete("/api/students/{id}");
+        Delete("/students/{id}");
         AllowAnonymous();
         Description(d => d
             .Produces(204)

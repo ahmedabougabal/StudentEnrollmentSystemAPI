@@ -17,7 +17,7 @@ public class ListStudentsEndpoint : Endpoint<ListStudentsRequest, PaginatedResul
 
     public override void Configure()
     {
-        Get("/api/students");
+        Get("/students");
         AllowAnonymous();
         Description(d => d
             .Produces<PaginatedResult<StudentResponse>>(200)
