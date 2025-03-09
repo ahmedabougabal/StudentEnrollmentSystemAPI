@@ -9,17 +9,22 @@ public class StudentRepository : InMemoryRepository<Student>, IStudentRepository
     protected override int GetEntityId(Student entity) => entity.Id;
     protected override void SetEntityId(Student entity, int id) => entity.Id = id;
 
-    public async Task<IEnumerable<Student>> SearchAsync(string? name = null, int? age = null, int page = 1, int pageSize = 10)
+    public async Task<IEnumerable<Student>> SearchAsync(
+        string? searchTerm = null, 
+        int? age = null, 
+        int pageNumber = 1, 
+        int pageSize = 10, 
+        CancellationToken ct = default)
     {
         var query = _entities.Values.AsQueryable();
 
         // Apply filters
-        if (!string.IsNullOrWhiteSpace(name))
+        if (!string.IsNullOrWhiteSpace(searchTerm))
         {
-            name = name.ToLower();
+            searchTerm = searchTerm.ToLower();
             query = query.Where(s => 
-                s.FirstName.ToLower().Contains(name) || 
-                s.LastName.ToLower().Contains(name));
+                s.FirstName.ToLower().Contains(searchTerm) || 
+                s.LastName.ToLower().Contains(searchTerm));
         }
 
         if (age.HasValue)
@@ -31,32 +36,27 @@ public class StudentRepository : InMemoryRepository<Student>, IStudentRepository
         return await Task.FromResult(
             query.OrderBy(s => s.LastName)
                  .ThenBy(s => s.FirstName)
-                 .Skip((page - 1) * pageSize)
+                 .Skip((pageNumber - 1) * pageSize)
                  .Take(pageSize)
                  .ToList());
     }
 
-    public async Task<int> GetTotalCountAsync(string? name = null, int? age = null)
+    public async Task<int> GetTotalCountAsync(string? searchTerm = null, CancellationToken ct = default)
     {
         var query = _entities.Values.AsQueryable();
 
-        if (!string.IsNullOrWhiteSpace(name))
+        if (!string.IsNullOrWhiteSpace(searchTerm))
         {
-            name = name.ToLower();
+            searchTerm = searchTerm.ToLower();
             query = query.Where(s => 
-                s.FirstName.ToLower().Contains(name) || 
-                s.LastName.ToLower().Contains(name));
-        }
-
-        if (age.HasValue)
-        {
-            query = query.Where(s => s.Age == age.Value);
+                s.FirstName.ToLower().Contains(searchTerm) || 
+                s.LastName.ToLower().Contains(searchTerm));
         }
 
         return await Task.FromResult(query.Count());
     }
 
-    public async Task<IEnumerable<Student>> GetStudentsByClassIdAsync(int classId)
+    public async Task<IEnumerable<Student>> GetStudentsByClassIdAsync(int classId, CancellationToken ct = default)
     {
         return await Task.FromResult(
             _entities.Values
@@ -66,7 +66,7 @@ public class StudentRepository : InMemoryRepository<Student>, IStudentRepository
                 .ToList());
     }
 
-    public async Task<int> GetTotalCountByClassIdAsync(int classId)
+    public async Task<int> GetTotalCountByClassIdAsync(int classId, CancellationToken ct = default)
     {
         return await Task.FromResult(
             _entities.Values.Count(s => s.Enrollments.Any(e => e.ClassId == classId)));
