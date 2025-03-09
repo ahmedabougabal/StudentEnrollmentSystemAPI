@@ -52,7 +52,7 @@ public class MarkService : IMarkService
         {
             Items = marks,
             TotalCount = totalCount,
-            Page = page,
+            PageNumber = page,
             PageSize = pageSize
         };
     }
@@ -74,7 +74,7 @@ public class MarkService : IMarkService
         {
             Items = marks,
             TotalCount = totalCount,
-            Page = page,
+            PageNumber = page,
             PageSize = pageSize
         };
     }

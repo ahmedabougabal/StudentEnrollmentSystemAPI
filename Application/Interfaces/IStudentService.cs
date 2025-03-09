@@ -1,15 +1,14 @@
 using UniversityEnrollmentSystem.Application.DTOs;
-using UniversityEnrollmentSystem.Domain.Entities;
+using UniversityEnrollmentSystem.Features.Students.Requests;
+using UniversityEnrollmentSystem.Features.Students.Responses;
 
 namespace UniversityEnrollmentSystem.Application.Interfaces;
 
 public interface IStudentService
 {
-    Task<Student?> GetStudentByIdAsync(int id);
-    Task<PaginatedResult<Student>> GetStudentsAsync(string? name = null, int? age = null, int page = 1, int pageSize = 10);
-    Task<Student> CreateStudentAsync(Student student);
-    Task UpdateStudentAsync(Student student);
-    Task DeleteStudentAsync(int id);
-    Task<bool> StudentExistsAsync(int id);
-    Task<IEnumerable<Student>> GetStudentsByClassIdAsync(int classId);
+    Task<StudentResponse?> GetStudentByIdAsync(int id, CancellationToken ct = default);
+    Task<PaginatedResult<StudentResponse>> GetStudentsAsync(int pageNumber = 1, int pageSize = 10, string? searchTerm = null, CancellationToken ct = default);
+    Task<StudentResponse> CreateStudentAsync(CreateStudentRequest request, CancellationToken ct = default);
+    Task<StudentResponse> UpdateStudentAsync(UpdateStudentRequest request, CancellationToken ct = default);
+    Task<bool> DeleteStudentAsync(int id, CancellationToken ct = default);
 }

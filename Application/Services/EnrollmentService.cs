@@ -49,7 +49,7 @@ public class EnrollmentService : IEnrollmentService
         {
             Items = enrollments,
             TotalCount = totalCount,
-            Page = page,
+            PageNumber = page,
             PageSize = pageSize
         };
     }
@@ -71,7 +71,7 @@ public class EnrollmentService : IEnrollmentService
         {
             Items = enrollments,
             TotalCount = totalCount,
-            Page = page,
+            PageNumber = page,
             PageSize = pageSize
         };
     }
