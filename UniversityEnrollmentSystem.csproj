@@ -19,7 +19,6 @@
         <!-- Domain Layer -->
         <Folder Include="Domain\" />
         <Folder Include="Domain\Entities\" />
-        <Folder Include="Domain\Interfaces\" />
         <Folder Include="Domain\Events\" />
         <Folder Include="Domain\ValueObjects\" />
         <Folder Include="Domain\Enums\" />
