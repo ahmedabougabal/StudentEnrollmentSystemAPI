@@ -9,11 +9,26 @@
 A modern, high-performance .NET-based Student Enrollment System API built with Clean Architecture principles and Domain-Driven Design patterns.
 
 ## Table of Contents
-- [Architecture & Design Patterns](#-architecture--design-patterns)
-- [Entity Relationships](#-entity-relationships)
-- [Technical Stack](#-technical-stack)
-- [API Structure](#-api-structure)
-- [Deployment & Setup](#-deployment--setup)
+
+[![Architecture & Design Patterns](https://img.shields.io/badge/Architecture%20&%20Design%20Patterns-blue?style=for-the-badge)](#architecture--design-patterns)
+[![Entity Relationships](https://img.shields.io/badge/Entity%20Relationships-green?style=for-the-badge)](#entity-relationships)
+[![Technical Stack](https://img.shields.io/badge/Technical%20Stack-orange?style=for-the-badge)](#technical-stack)
+[![API Structure](https://img.shields.io/badge/API%20Structure-purple?style=for-the-badge)](#api-structure)
+[![Deployment & Setup](https://img.shields.io/badge/Deployment%20&%20Setup-red?style=for-the-badge)](#deployment--setup)
+
+
+---
+## Access swaggerUI to test the endpoints steps : 
+```bash
+dotnet run 
+```
+then access the link at the specified port that shows up in the terminal after running the app.
+
+it should look sth like this : http://localhost:5260/swagger/index.html
+
+![image](https://github.com/user-attachments/assets/33b8418e-b91f-439c-8594-244cf163270a)
+
+---
 
 ## 🏗 Architecture & Design Patterns
 
@@ -153,6 +168,13 @@ POST /api/enrollments - Create new enrollment
 GET /api/enrollments/{id} - Get enrollment details
 GET /api/enrollments/student/{studentId} - Get student enrollments
 GET /api/enrollments/class/{classId} - Get class enrollments
+```
+
+
+### Enrollments
+```http
+
+
 ```
 
 
