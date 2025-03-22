@@ -176,10 +176,11 @@ GET /api/enrollments/class/{classId} - Get class enrollments
 ```
 
 
-### Enrollments
+### Marks
 ```http
-
-
+POST /api/marks                                # Record marks for a student
+GET /api/classes/{classId}/average-marks       # Calculate average marks for a class
+GET /api/students/{studentId}/marks            # Get marks for a specific student
 ```
 
 
