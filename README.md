@@ -136,7 +136,23 @@ GET /api/students/{id}/report  # Generate student report
 POST /api/students            # Create new student
 PUT /api/students/{id}        # Update student
 DELETE /api/students/{id}     # Delete student
+```
 
+### Classes
+```http
+GET /api/classes/{id} - Get class details
+GET /api/classes - List all classes
+POST /api/classes - Create new class
+PUT /api/classes/{id} - Update class
+DELETE /api/classes/{id} - Delete class
+```
 
+### Enrollments
+```http
+POST /api/enrollments - Create new enrollment
+GET /api/enrollments/{id} - Get enrollment details
+GET /api/enrollments/student/{studentId} - Get student enrollments
+GET /api/enrollments/class/{classId} - Get class enrollments
+```
 
 
