@@ -1,10 +1,15 @@
 # 🎓 Student Enrollment System API
 
-![.NET 6+](https://img.shields.io/badge/.NET-6%2B-512BD4)
-![FastEndpoints](https://img.shields.io/badge/FastEndpoints-✓-brightgreen)
-![Last Updated](https://img.shields.io/badge/Last%20Updated-2025--03--22-blue)
-![Author](https://img.shields.io/badge/Author-ahmedabougabal-green)
-![License](https://img.shields.io/badge/License-MIT-yellow)
+## Project Information
+
+## Project Information
+
+[![.NET 6+](https://img.shields.io/badge/.NET-6%2B-512BD4?style=for-the-badge&logo=.net&logoColor=white)](#)
+[![FastEndpoints](https://img.shields.io/badge/FastEndpoints-✓-brightgreen?style=for-the-badge&logo=lightning&logoColor=white)](#)
+[![Last Updated](https://img.shields.io/badge/Last%20Updated-2025--03--22-blue?style=for-the-badge&logo=calendar&logoColor=white)](#)
+[![Author](https://img.shields.io/badge/Author-Ahmed%20Abou%20Gabal-green?style=for-the-badge&logo=github&logoColor=white)](https://github.com/ahmedabougabal)
+
+
 
 A modern, high-performance .NET-based Student Enrollment System API built with Clean Architecture principles and Domain-Driven Design patterns.
 
